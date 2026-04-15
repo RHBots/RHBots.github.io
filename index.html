@@ -416,6 +416,13 @@
             transform: scale(1.05);
         }
 
+        #g2Card .card-img img {
+            max-height: none;
+            max-width: none;
+            width: 250%;
+            object-fit: cover;
+        }
+
         .product-card .card-body {
             padding: 1.5rem 2rem 2rem;
         }
@@ -1086,9 +1093,9 @@
                 </div>
             </div>
 
-            <div class="product-card reveal" style="opacity: 1;">
+            <div id="g2Card" class="product-card reveal" style="opacity: 1;">
                 <div class="card-img" style="background: linear-gradient(135deg, #f0f8f5, #e5f2ee);">
-                    <img src="assets/img/g2-frontal.png" alt="AGIBOT G2" loading="lazy" style="max-height: none; width: 250%; max-width: none;">
+                    <img src="assets/img/g2-frontal.png" alt="AGIBOT G2" loading="lazy">
                 </div>
                 <div class="card-body">
                     <div class="card-category" data-i18n="g2.cat">Humanoide con Ruedas</div>
