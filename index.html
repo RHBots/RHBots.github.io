@@ -1123,7 +1123,8 @@
                 transform: none;
             }
 
-            .nav-dropdown-menu a {
+            .nav-dropdown-menu a,
+            nav.scrolled .nav-dropdown-menu a {
                 color: rgba(255,255,255,0.7) !important;
                 font-size: 0.85rem;
                 font-weight: 400;
@@ -1131,9 +1132,11 @@
                 border-bottom: none;
                 letter-spacing: 3px;
                 transition: color 0.3s;
+                background: none;
             }
 
-            .nav-dropdown-menu a:hover {
+            .nav-dropdown-menu a:hover,
+            nav.scrolled .nav-dropdown-menu a:hover {
                 background: none;
                 color: var(--cyan) !important;
             }
