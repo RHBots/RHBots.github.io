@@ -111,16 +111,24 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-5px);
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-            overflow: hidden;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s, transform 0.25s;
-            min-width: 140px;
+            transition: opacity 0.3s, transform 0.3s;
+            min-width: 150px;
             z-index: 100;
-            padding-top: 0.5rem;
+            padding: 0.4rem 0;
+            margin-top: 0.3rem;
+        }
+
+        nav.scrolled .nav-dropdown-menu {
+            background: rgba(45,42,110,0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(45,42,110,0.1);
         }
 
         .nav-dropdown-menu::before {
@@ -140,18 +148,27 @@
 
         .nav-dropdown-menu a {
             display: block;
-            padding: 0.6rem 1.2rem;
-            color: var(--navy) !important;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+            padding: 0.55rem 1.3rem;
+            color: var(--white) !important;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: background 0.2s, color 0.2s;
             white-space: nowrap;
         }
 
         .nav-dropdown-menu a:hover {
-            background: var(--light);
+            background: rgba(255,255,255,0.12);
+            color: var(--cyan) !important;
+        }
+
+        nav.scrolled .nav-dropdown-menu a {
+            color: var(--navy) !important;
+        }
+
+        nav.scrolled .nav-dropdown-menu a:hover {
+            background: rgba(45,42,110,0.06);
             color: var(--cyan) !important;
         }
 
