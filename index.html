@@ -108,7 +108,7 @@
 
         .nav-dropdown-menu {
             position: absolute;
-            top: calc(100% + 0.8rem);
+            top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-5px);
             background: var(--white);
@@ -120,6 +120,16 @@
             transition: opacity 0.25s, transform 0.25s;
             min-width: 140px;
             z-index: 100;
+            padding-top: 0.5rem;
+        }
+
+        .nav-dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -0.5rem;
+            left: 0;
+            right: 0;
+            height: 0.5rem;
         }
 
         .nav-dropdown:hover .nav-dropdown-menu {
