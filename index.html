@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RH Bots - Distribuidor Oficial AGIBOT en Iberia</title>
+    <meta name="description" content="RH Bots - Distribuidor oficial de AGIBOT en Espa&ntilde;a y Portugal. Robots humanoides, cuadr&uacute;pedos y de limpieza aut&oacute;noma.">
+    <link rel="icon" href="assets/img/logo-icon-color.png" type="image/png">
+    <style>
+        /* ── Reset & Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #2D2A6E;
+            --cyan: #00B4E6;
+            --sky: #22A7E0;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        nav.scrolled {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        nav .nav-logo img {
+            height: 56px;
+            transition: opacity 0.3s;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--navy);
+        }
+
+        nav .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            transition: color 0.3s;
+        }
+
+        .lang-toggle:hover { color: var(--cyan); }
+        .lang-toggle svg { opacity: 0.8; }
+
+        nav.scrolled .lang-toggle { color: var(--navy); }
+        nav.scrolled .lang-toggle:hover { color: var(--cyan); }
+
+        .lang-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-5px);
+            pointer-events: none;
+            transition: opacity 0.2s, transform 0.2s;
+            min-width: 50px;
+        }
+
+        .lang-dropdown.open .lang-menu {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .lang-menu button {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            color: var(--navy);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lang-menu button:hover {
+            background: var(--light);
+            color: var(--cyan);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: background 0.3s;
+        }
+
+        nav.scrolled .nav-toggle span {
+            background: var(--navy);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--navy);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('assets/img/hero-bg.jpg') center center / cover no-repeat;
+            animation: heroZoom 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(135deg, rgba(45,42,110,0.75) 0%, rgba(26,24,82,0.65) 40%, rgba(34,167,224,0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeUp 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -5vh;
+        }
+
+        .hero-logo {
+            width: min(400px, 70vw);
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 4px 30px rgba(0,180,230,0.3));
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero-wordmark {
+            width: min(360px, 65vw);
+            filter: brightness(0) invert(1);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tagline {
+            color: var(--white);
+            font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            z-index: 2;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .hero-scroll svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--white);
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Distribuidor Section ── */
+        .distribuidor {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .distribuidor-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .distribuidor .badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border: 1.5px solid var(--cyan);
+            border-radius: 50px;
+            color: var(--cyan);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .distribuidor h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .distribuidor h2 span {
+            color: var(--cyan);
+        }
+
+        .distribuidor p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .logos-partner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .logos-partner img {
+            height: 100px;
+            object-fit: contain;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .logos-partner img:hover { opacity: 1; }
+
+        .logos-partner .separator {
+            width: 1px;
+            height: 40px;
+            background: var(--gray-light);
+        }
+
+        /* ── Products Carousel ── */
+        .productos {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 1rem 0 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: default;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+
+        .product-card.clickable { cursor: pointer; }
+
+        .product-card .card-img {
+            height: 320px;
+            background: linear-gradient(135deg, #f0f4f8, #e8edf2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card .card-img img {
+            max-height: 280px;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .card-img img {
+            transform: scale(1.05);
+        }
+
+        .product-card .card-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .product-card .card-category {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .card-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .product-card .card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--cyan);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-card .card-cta svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .card-cta svg {
+            transform: translateX(4px);
+        }
+
+
+        /* ── X2 Detail Section ── */
+        .x2-detail {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .x2-detail-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .x2-hero-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .x2-hero-img {
+            position: relative;
+        }
+
+        .x2-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        .x2-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .x2-slide.active {
+            opacity: 1;
+        }
+
+        .x2-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gray-light);
+            background: rgba(255,255,255,0.85);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, border-color 0.3s;
+            color: var(--navy);
+        }
+
+        .x2-arrow:hover {
+            background: var(--white);
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .x2-arrow svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .x2-arrow-left { left: 0; }
+        .x2-arrow-right { right: 0; }
+
+        .x2-slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .x2-slider-dots .x2-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gray-light);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .x2-slider-dots .x2-dot.active {
+            background: var(--cyan);
+            transform: scale(1.3);
+        }
+
+        .x2-hero-img .model-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--cyan);
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .x2-info h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .x2-info .subtitle {
+            color: var(--cyan);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .x2-info p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .x2-quick-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .spec-item {
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 12px;
+            border-left: 3px solid var(--cyan);
+        }
+
+        .spec-item .spec-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .spec-item .spec-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* X2 Variants */
+        .x2-variants {
+            margin-bottom: 5rem;
+        }
+
+        .x2-variants h3 {
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+        }
+
+        .variants-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .variant-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .variant-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-color: var(--cyan);
+        }
+
+        .variant-card img {
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+        }
+
+        .variant-card h4 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .variant-card .variant-dof {
+            color: var(--cyan);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .variant-card p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+
+        /* ── Contact / Footer ── */
+        .contacto {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, #1a1852 50%, var(--sky) 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .contacto h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .contacto p {
+            opacity: 0.8;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: var(--white);
+            color: var(--navy);
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .app-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--navy), var(--cyan));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+
+        .app-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--white);
+        }
+
+        .contact-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.4);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .contact-social a:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .contact-social a svg {
+            width: 22px;
+            height: 22px;
+            fill: rgba(255,255,255,0.8);
+            transition: fill 0.3s;
+        }
+
+        .contact-social a:hover svg {
+            fill: var(--white);
+        }
+
+        footer {
+            background: var(--dark);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer .footer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .footer-logos img {
+            height: 80px;
+            opacity: 0.85;
+        }
+
+
+        footer p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* ── Section Divider ── */
+        .section-divider {
+            height: 1px;
+            max-width: 200px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+        }
+
+        /* ── Back to top ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s, background 0.3s;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            background: var(--cyan);
+        }
+
+        .back-to-top svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--white);
+        }
+
+        /* ── Scroll Animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            nav .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--navy);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s;
+            }
+
+            nav .nav-links.open {
+                right: 0;
+            }
+
+            nav .nav-links a {
+                color: var(--white) !important;
+                font-size: 1.1rem;
+            }
+
+            .nav-toggle { display: flex; }
+
+            .carousel-track {
+                grid-template-columns: 1fr;
+            }
+
+            .x2-hero-row {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .x2-hero-img { order: -1; }
+
+            .x2-quick-specs {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .variants-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .variant-card img { height: 150px; }
+
+            .hero-logo { width: min(300px, 80vw); }
+        }
+
+        @media (max-width: 480px) {
+            .x2-quick-specs { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav id="navbar">
+    <a href="#" class="nav-logo">
+        <img src="assets/img/logo-icon-white.png" alt="RH Bots" class="nav-logo-white">
+        <img src="assets/img/logo-color.png" alt="RH Bots" class="nav-logo-dark" style="display:none">
+    </a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio" data-i18n="nav.inicio">Inicio</a></li>
+        <li><a href="#productos" data-i18n="nav.productos">Productos</a></li>
+        <li><a href="#d1">D1</a></li>
+        <li><a href="#x2">X2</a></li>
+        <li><a href="#c5">C5</a></li>
+        <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+        <li class="lang-dropdown">
+            <button class="lang-toggle" onclick="this.parentElement.classList.toggle('open')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span id="currentLang">ES</span>
+            </button>
+            <div class="lang-menu">
+                <button onclick="setLang('es')">ES</button>
+                <button onclick="setLang('en')">EN</button>
+                <button onclick="setLang('pt')">PT</button>
+            </div>
+        </li>
+    </ul>
+    <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero" id="inicio">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content">
+        <img src="assets/img/logo-icon-white.png" alt="RH Bots" class="hero-logo">
+        <img src="assets/img/logotipo-text.png" alt="RH Bots - Recursos Humanoides" class="hero-wordmark">
+        <p class="hero-tagline" data-i18n="hero.tagline">Distribuidor oficial de AGIBOT en Iberia</p>
+    </div>
+    <a href="#distribuidor" class="hero-scroll">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </a>
+</section>
+
+<!-- ── Distribuidor Oficial ── -->
+<section class="distribuidor" id="distribuidor">
+    <div class="distribuidor-inner reveal">
+        <span class="badge" data-i18n="dist.badge">Partner Oficial</span>
+        <h2 data-i18n="dist.title">Distribuidor oficial de <span>AGIBOT</span> en Espa&ntilde;a y Portugal</h2>
+        <p data-i18n="dist.desc">
+            Somos el socio exclusivo de AGIBOT para la Pen&iacute;nsula Ib&eacute;rica. Acercamos la rob&oacute;tica humanoide
+            m&aacute;s avanzada del mundo a empresas, instituciones y centros de investigaci&oacute;n.
+            AGIBOT es el l&iacute;der mundial en envio de robots humanoides con m&aacute;s de 10.000 unidades desplegadas.
+        </p>
+        <div class="logos-partner">
+            <img src="assets/img/logo-color.png" alt="RH Bots">
+            <div class="separator"></div>
+            <img src="assets/img/agibot-logo.png" alt="AGIBOT">
+        </div>
+    </div>
+</section>
+
+<!-- ── Productos ── -->
+<section class="productos" id="productos">
+    <div class="section-header reveal">
+        <h2 data-i18n="prod.title">Nuestros Productos</h2>
+        <div class="line"></div>
+        <p data-i18n="prod.subtitle">Soluciones rob&oacute;ticas para cada necesidad</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+
+            <!-- D1 (clickable) -->
+            <a href="#d1" class="product-card clickable reveal">
+                <div class="card-img">
+                    <img src="assets/img/d1-frontal.png" alt="AGIBOT D1" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-category" data-i18n="d1.cat">Robot Cuadr&uacute;pedo</div>
+                    <div class="card-title">AGIBOT D1</div>
+                    <p class="card-desc" data-i18n="d1.card">
+                        Robot cuadr&uacute;pedo &aacute;gil y vers&aacute;til. Hasta 3,7 m/s de velocidad,
+                        sube escaleras de 16 cm y pendientes de 30&deg;. Disponible en versiones Edu, Pro y Ultra.
+                    </p>
+                    <span class="card-cta" data-i18n="cta.details">
+                        Ver detalles
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- X2 (clickable) -->
+            <a href="#x2" class="product-card clickable reveal">
+                <div class="card-img" style="background: linear-gradient(135deg, #eef5ff, #e0edff);">
+                    <img src="assets/img/x2-saludando.png" alt="AGIBOT X2" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-category" data-i18n="x2.cat">Humanoide B&iacute;pedo</div>
+                    <div class="card-title">AGIBOT X2</div>
+                    <p class="card-desc" data-i18n="x2.card">
+                        Humanoide compacto de 131 cm con hasta 30 grados de libertad.
+                        Camina, corre, baila e interact&uacute;a con expresiones realistas gracias a su IA embarcada.
+                    </p>
+                    <span class="card-cta" data-i18n="cta.details">
+                        Ver detalles
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- C5 (clickable) -->
+            <a href="#c5" class="product-card clickable reveal">
+                <div class="card-img">
+                    <img src="assets/img/c5-frontal.png" alt="AGIBOT C5" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-category" data-i18n="c5.cat">Limpieza Aut&oacute;noma</div>
+                    <div class="card-title">AGIBOT C5</div>
+                    <p class="card-desc" data-i18n="c5.card">
+                        Robot de limpieza comercial aut&oacute;nomo. Barre, friega y aspira hasta 1.980 m&sup2;/h.
+                        Tanque de 90L, 3 horas de autonom&iacute;a, carga y rellenado autom&aacute;ticos.
+                    </p>
+                    <span class="card-cta" data-i18n="cta.details">
+                        Ver detalles
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </span>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ── D1 Detail Section ── -->
+<section class="x2-detail" id="d1" style="background: var(--light);">
+    <div class="x2-detail-inner">
+
+        <!-- Hero row -->
+        <div class="x2-hero-row reveal">
+            <div class="x2-hero-img">
+                <span class="model-badge">CUADR&Uacute;PEDO</span>
+                <div class="x2-slider" id="d1Slider">
+                    <img src="assets/img/d1-lateral.png" alt="D1 Lateral" class="x2-slide active">
+                    <img src="assets/img/d1-ultra.png" alt="D1 Ultra Perfil" class="x2-slide">
+                    <img src="assets/img/d1-ultra3.png" alt="D1 Ultra Cenital" class="x2-slide">
+                </div>
+                <button class="x2-arrow x2-arrow-left" onclick="d1Prev()" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button class="x2-arrow x2-arrow-right" onclick="d1Next()" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <div class="x2-slider-dots" id="d1SliderDots"></div>
+            </div>
+            <div class="x2-info">
+                <h2>AGIBOT D1</h2>
+                <div class="subtitle" data-i18n="d1.sub">Robot Cuadr&uacute;pedo Inteligente</div>
+                <p data-i18n="d1.desc">
+                    El D1 es un robot cuadr&uacute;pedo &aacute;gil dise&ntilde;ado para inspecci&oacute;n, seguridad,
+                    educaci&oacute;n y operaciones de campo. Con control de marcha basado en aprendizaje por
+                    refuerzo, navega terrenos complejos con estabilidad y rapidez. Disponible en
+                    m&uacute;ltiples configuraciones para adaptarse a cada caso de uso.
+                </p>
+                <div class="x2-quick-specs">
+                    <div class="spec-item">
+                        <div class="spec-value">3,7 m/s</div>
+                        <div class="spec-label" data-i18n="d1.sp1">Velocidad m&aacute;xima</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">30&deg;+</div>
+                        <div class="spec-label" data-i18n="d1.sp2">Pendiente m&aacute;xima</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">16 cm</div>
+                        <div class="spec-label" data-i18n="d1.sp3">Escaleras</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">35 cm</div>
+                        <div class="spec-label" data-i18n="d1.sp4">Salto</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">48 Nm</div>
+                        <div class="spec-label" data-i18n="d1.sp5">Par pico (Ultra)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">IP54</div>
+                        <div class="spec-label" data-i18n="d1.sp6">Protecci&oacute;n (Ultra)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variants -->
+        <div class="x2-variants reveal">
+            <h3 data-i18n="variants">Configuraciones disponibles</h3>
+            <div class="variants-grid">
+                <div class="variant-card">
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                    <h4>D1 Edu</h4>
+                    <div class="variant-dof">IP32</div>
+                    <p data-i18n="d1.v1">Plataforma educativa con interfaces de desarrollo abiertas. Ideal para universidades, centros de formaci&oacute;n y laboratorios de investigaci&oacute;n.</p>
+                </div>
+                <div class="variant-card">
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                    <h4>D1 Pro</h4>
+                    <div class="variant-dof">IP32</div>
+                    <p data-i18n="d1.v2">Configuraci&oacute;n profesional est&aacute;ndar para demostraciones, inspecci&oacute;n visual y operaciones de seguridad en interiores.</p>
+                </div>
+                <div class="variant-card">
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <h4>D1 Ultra</h4>
+                    <div class="variant-dof">IP54</div>
+                    <p data-i18n="d1.v3">Grado industrial con 48 Nm de par pico, arranque sin calibraci&oacute;n (doble encoder) y protecci&oacute;n para exteriores y entornos exigentes.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── X2 Detail Section ── -->
+<section class="x2-detail" id="x2">
+    <div class="x2-detail-inner">
+
+        <!-- Hero row -->
+        <div class="x2-hero-row reveal">
+            <div class="x2-hero-img">
+                <span class="model-badge">DESTACADO</span>
+                <div class="x2-slider" id="x2Slider">
+                    <img src="assets/img/x2-saludando.png" alt="X2 Saludando" class="x2-slide active">
+                    <img src="assets/img/x2-baile.png" alt="X2 Bailando" class="x2-slide">
+                    <img src="assets/img/x2-mariposa.png" alt="X2 Mariposa" class="x2-slide">
+                    <img src="assets/img/x2-corazon.png" alt="X2 Corazon" class="x2-slide">
+                </div>
+                <button class="x2-arrow x2-arrow-left" onclick="x2Ctrl.prev()" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button class="x2-arrow x2-arrow-right" onclick="x2Ctrl.next()" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <div class="x2-slider-dots" id="x2SliderDots"></div>
+            </div>
+            <div class="x2-info">
+                <h2>AGIBOT X2</h2>
+                <div class="subtitle" data-i18n="x2.sub">Lingxi X2 &middot; Humanoide B&iacute;pedo Compacto</div>
+                <p data-i18n="x2.desc">
+                    El X2 es el humanoide compacto m&aacute;s vendido del mundo. Dise&ntilde;ado para interacci&oacute;n
+                    natural con personas, combina locomoci&oacute;n b&iacute;peda avanzada con inteligencia artificial
+                    de &uacute;ltima generaci&oacute;n. Reconoce emociones, responde con expresiones faciales
+                    y lenguaje corporal realista, y puede aprender nuevas tareas de forma generalista.
+                </p>
+                <div class="x2-quick-specs">
+                    <div class="spec-item">
+                        <div class="spec-value">131 cm</div>
+                        <div class="spec-label" data-i18n="x2.sp1">Altura</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">35 kg</div>
+                        <div class="spec-label" data-i18n="x2.sp2">Peso</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">30 DoF</div>
+                        <div class="spec-label" data-i18n="x2.sp3">Grados de libertad (Ultra)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">1,5 m/s</div>
+                        <div class="spec-label" data-i18n="x2.sp4">Velocidad m&aacute;xima</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">500 Wh</div>
+                        <div class="spec-label" data-i18n="x2.sp5">Bater&iacute;a intercambiable</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">~2 h</div>
+                        <div class="spec-label" data-i18n="x2.sp6">Autonom&iacute;a</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variants -->
+        <div class="x2-variants reveal">
+            <h3 data-i18n="variants">Configuraciones disponibles</h3>
+            <div class="variants-grid">
+                <div class="variant-card">
+                    <img src="assets/img/x2-base.png" alt="X2 Base" loading="lazy">
+                    <h4>X2</h4>
+                    <div class="variant-dof">25 DoF</div>
+                    <p data-i18n="x2.v1">Plataforma base ideal para educaci&oacute;n, investigaci&oacute;n y demostraciones. C&aacute;maras RGB interactivas, micr&oacute;fono array y altavoz.</p>
+                </div>
+                <div class="variant-card">
+                    <img src="assets/img/x2-pro.png" alt="X2 Pro" loading="lazy">
+                    <h4>X2 Pro</h4>
+                    <div class="variant-dof">~31 DoF</div>
+                    <p data-i18n="x2.v2">Brazos mejorados con 7 DoF por brazo para mayor destreza. Configuraci&oacute;n avanzada para tareas de manipulaci&oacute;n e interacci&oacute;n profesional.</p>
+                </div>
+                <div class="variant-card">
+                    <img src="assets/img/x2-ultra.png" alt="X2 Ultra" loading="lazy">
+                    <h4>X2 Ultra</h4>
+                    <div class="variant-dof">30 DoF</div>
+                    <p data-i18n="x2.v3">Suite sensorial completa: LiDAR 3D, c&aacute;mara RGB-D, est&eacute;reo, IMU, sensores de fuerza en articulaciones y carga aut&oacute;noma.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── C5 Detail Section ── -->
+<section class="x2-detail" id="c5" style="background: var(--light);">
+    <div class="x2-detail-inner">
+
+        <!-- Hero row -->
+        <div class="x2-hero-row reveal">
+            <div class="x2-hero-img">
+                <span class="model-badge">LIMPIEZA</span>
+                <div class="x2-slider" id="c5Slider">
+                    <img src="assets/img/c5-frontal.png" alt="C5 Frontal" class="x2-slide active">
+                    <img src="assets/img/c5-perfil.png" alt="C5 Perfil" class="x2-slide">
+                    <img src="assets/img/c5-perfil-izq.png" alt="C5 Perfil Izquierdo" class="x2-slide">
+                    <img src="assets/img/c5-trasera.png" alt="C5 Trasera" class="x2-slide">
+                    <img src="assets/img/c5-perpendicular.png" alt="C5 Perpendicular" class="x2-slide">
+                </div>
+                <button class="x2-arrow x2-arrow-left" onclick="c5Prev()" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button class="x2-arrow x2-arrow-right" onclick="c5Next()" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <div class="x2-slider-dots" id="c5SliderDots"></div>
+            </div>
+            <div class="x2-info">
+                <h2>AGIBOT C5</h2>
+                <div class="subtitle" data-i18n="c5.sub">Robot de Limpieza Comercial Aut&oacute;nomo</div>
+                <p data-i18n="c5.desc">
+                    El C5 es un robot de limpieza comercial completamente aut&oacute;nomo que combina
+                    barrido, fregado y aspirado en una sola m&aacute;quina. Con navegaci&oacute;n inteligente
+                    y evitaci&oacute;n de obst&aacute;culos en tiempo real, mantiene grandes superficies
+                    sin intervenci&oacute;n humana. Se auto-carga, auto-rellena y auto-limpia.
+                </p>
+                <div class="x2-quick-specs">
+                    <div class="spec-item">
+                        <div class="spec-value">1.980 m&sup2;/h</div>
+                        <div class="spec-label" data-i18n="c5.sp1">Eficiencia de limpieza</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">550 mm</div>
+                        <div class="spec-label" data-i18n="c5.sp2">Ancho de limpieza</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">90 L</div>
+                        <div class="spec-label" data-i18n="c5.sp3">Tanque de agua</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">3 h</div>
+                        <div class="spec-label" data-i18n="c5.sp4">Autonom&iacute;a de fregado</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">25 kg</div>
+                        <div class="spec-label" data-i18n="c5.sp5">Presi&oacute;n de fregado</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">95%</div>
+                        <div class="spec-label" data-i18n="c5.sp6">Eficiencia recogida</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications -->
+        <div class="x2-variants reveal">
+            <h3 data-i18n="c5.apps">Aplicaciones</h3>
+            <div class="variants-grid">
+                <div class="variant-card">
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <h4 data-i18n="c5.a1t">Comercio y oficinas</h4>
+                    <div class="variant-dof" data-i18n="c5.a1s">Supermercados &middot; Centros comerciales &middot; Oficinas</div>
+                    <p data-i18n="c5.a1d">Limpieza aut&oacute;noma de grandes superficies comerciales durante y fuera del horario de apertura, sin interrumpir la actividad.</p>
+                </div>
+                <div class="variant-card">
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <h4 data-i18n="c5.a2t">Hostelería y sanidad</h4>
+                    <div class="variant-dof" data-i18n="c5.a2s">Hoteles &middot; Hospitales &middot; Residencias</div>
+                    <p data-i18n="c5.a2d">Mantenimiento higi&eacute;nico continuo en entornos que requieren est&aacute;ndares de limpieza elevados y operaci&oacute;n silenciosa.</p>
+                </div>
+                <div class="variant-card">
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M12 6V2"/><circle cx="12" cy="12" r="2"/><path d="M7 12h-2"/><path d="M19 12h-2"/></svg></div>
+                    <h4 data-i18n="c5.a3t">Industria y transporte</h4>
+                    <div class="variant-dof" data-i18n="c5.a3s">Aeropuertos &middot; Naves industriales &middot; Log&iacute;stica</div>
+                    <p data-i18n="c5.a3d">Cobertura de grandes extensiones con autonom&iacute;a completa: carga, rellenado y vaciado autom&aacute;ticos sin intervenci&oacute;n.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── Contacto ── -->
+<section class="contacto" id="contacto">
+    <div class="reveal">
+        <h2 data-i18n="contact.title">Hablemos del futuro</h2>
+        <p data-i18n="contact.desc">
+            &iquest;Interesado en integrar robots AGIBOT en tu empresa o centro de investigaci&oacute;n?
+            Cont&aacute;ctanos y te asesoramos sin compromiso.
+        </p>
+        <a href="mailto:info@rhobots.com" class="contact-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span data-i18n="contact.btn">Contactar</span>
+        </a>
+        <div class="contact-social">
+            <a href="https://www.instagram.com/rhbots/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/rh-bots/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+    <div class="footer-logos">
+        <img src="assets/img/logo-icon-white.png" alt="RH Bots" style="height: 60px;">
+        <img src="assets/img/agibot-logo.png" alt="AGIBOT" style="height: 36px; filter: brightness(0) invert(1);">
+    </div>
+    <p><span data-i18n="footer">&copy; 2026 RH Bots &mdash; Recursos Humanoides. Distribuidor oficial AGIBOT en Iberia.</span></p>
+</footer>
+
+<!-- ── Back to top ── -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+</button>
+
+<script>
+    // ── Nav scroll effect ──
+    const nav = document.getElementById('navbar');
+    const logoWhite = document.querySelector('.nav-logo-white');
+    const logoDark = document.querySelector('.nav-logo-dark');
+
+    const heroBg = document.getElementById('heroBg');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        const sy = window.scrollY;
+
+        // Nav
+        if (sy > 80) {
+            nav.classList.add('scrolled');
+            logoWhite.style.display = 'none';
+            logoDark.style.display = 'block';
+        } else {
+            nav.classList.remove('scrolled');
+            logoWhite.style.display = 'block';
+            logoDark.style.display = 'none';
+        }
+
+        // Parallax hero bg
+        if (sy < window.innerHeight) {
+            heroBg.style.transform = 'scale(' + (1 + sy * 0.0001) + ') translateY(' + (sy * 0.3) + 'px)';
+        }
+
+        // Back to top
+        backToTop.classList.toggle('visible', sy > 600);
+    });
+
+    // ── Mobile nav toggle ──
+    function toggleNav() {
+        document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('open');
+        });
+    });
+
+    // ── Scroll reveal ──
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Generic Image Slider ──
+    function createSlider(containerSelector, dotsId) {
+        const slides = document.querySelectorAll(containerSelector + ' .x2-slide');
+        const dotsContainer = document.getElementById(dotsId);
+        let current = 0;
+        let timer;
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'x2-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.x2-dot');
+
+        function goTo(index) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = index;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
+            resetTimer();
+        }
+
+        function next() { goTo((current + 1) % slides.length); }
+        function prev() { goTo((current - 1 + slides.length) % slides.length); }
+        function resetTimer() { clearInterval(timer); timer = setInterval(next, 3500); }
+        resetTimer();
+
+        return { goTo, next, prev };
+    }
+
+    const d1Ctrl = createSlider('#d1Slider', 'd1SliderDots');
+    function d1Next() { d1Ctrl.next(); }
+    function d1Prev() { d1Ctrl.prev(); }
+
+    const x2Ctrl = createSlider('#x2Slider', 'x2SliderDots');
+
+    const c5Ctrl = createSlider('#c5Slider', 'c5SliderDots');
+    function c5Next() { c5Ctrl.next(); }
+    function c5Prev() { c5Ctrl.prev(); }
+
+    // ── i18n ──
+    const i18n = {
+        es: {
+            'nav.inicio': 'Inicio', 'nav.productos': 'Productos', 'nav.contacto': 'Contacto',
+            'hero.tagline': 'Distribuidor oficial de AGIBOT en Iberia',
+            'dist.badge': 'Partner Oficial',
+            'dist.title': 'Distribuidor oficial de <span>AGIBOT</span> en España y Portugal',
+            'dist.desc': 'Somos el socio exclusivo de AGIBOT para la Península Ibérica. Acercamos la robótica humanoide más avanzada del mundo a empresas, instituciones y centros de investigación. AGIBOT es el líder mundial en envío de robots humanoides con más de 10.000 unidades desplegadas.',
+            'prod.title': 'Nuestros Productos', 'prod.subtitle': 'Soluciones robóticas para cada necesidad',
+            'cta.details': 'Ver detalles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+            'd1.cat': 'Robot Cuadrúpedo',
+            'd1.card': 'Robot cuadrúpedo ágil y versátil. Hasta 3,7 m/s de velocidad, sube escaleras de 16 cm y pendientes de 30°. Disponible en versiones Edu, Pro y Ultra.',
+            'd1.sub': 'Robot Cuadrúpedo Inteligente',
+            'd1.desc': 'El D1 es un robot cuadrúpedo ágil diseñado para inspección, seguridad, educación y operaciones de campo. Con control de marcha basado en aprendizaje por refuerzo, navega terrenos complejos con estabilidad y rapidez. Disponible en múltiples configuraciones para adaptarse a cada caso de uso.',
+            'd1.sp1': 'Velocidad máxima', 'd1.sp2': 'Pendiente máxima', 'd1.sp3': 'Escaleras', 'd1.sp4': 'Salto', 'd1.sp5': 'Par pico (Ultra)', 'd1.sp6': 'Protección (Ultra)',
+            'd1.v1': 'Plataforma educativa con interfaces de desarrollo abiertas. Ideal para universidades, centros de formación y laboratorios de investigación.',
+            'd1.v2': 'Configuración profesional estándar para demostraciones, inspección visual y operaciones de seguridad en interiores.',
+            'd1.v3': 'Grado industrial con 48 Nm de par pico, arranque sin calibración (doble encoder) y protección para exteriores y entornos exigentes.',
+            'x2.cat': 'Humanoide Bípedo',
+            'x2.card': 'Humanoide compacto de 131 cm con hasta 30 grados de libertad. Camina, corre, baila e interactúa con expresiones realistas gracias a su IA embarcada.',
+            'x2.sub': 'Lingxi X2 · Humanoide Bípedo Compacto',
+            'x2.desc': 'El X2 es el humanoide compacto más vendido del mundo. Diseñado para interacción natural con personas, combina locomoción bípeda avanzada con inteligencia artificial de última generación. Reconoce emociones, responde con expresiones faciales y lenguaje corporal realista, y puede aprender nuevas tareas de forma generalista.',
+            'x2.sp1': 'Altura', 'x2.sp2': 'Peso', 'x2.sp3': 'Grados de libertad (Ultra)', 'x2.sp4': 'Velocidad máxima', 'x2.sp5': 'Batería intercambiable', 'x2.sp6': 'Autonomía',
+            'x2.v1': 'Plataforma base ideal para educación, investigación y demostraciones. Cámaras RGB interactivas, micrófono array y altavoz.',
+            'x2.v2': 'Brazos mejorados con 7 DoF por brazo para mayor destreza. Configuración avanzada para tareas de manipulación e interacción profesional.',
+            'x2.v3': 'Suite sensorial completa: LiDAR 3D, cámara RGB-D, estéreo, IMU, sensores de fuerza en articulaciones y carga autónoma.',
+            'variants': 'Configuraciones disponibles',
+            'c5.cat': 'Limpieza Autónoma',
+            'c5.card': 'Robot de limpieza comercial autónomo. Barre, friega y aspira hasta 1.980 m²/h. Tanque de 90L, 3 horas de autonomía, carga y rellenado automáticos.',
+            'c5.sub': 'Robot de Limpieza Comercial Autónomo',
+            'c5.desc': 'El C5 es un robot de limpieza comercial completamente autónomo que combina barrido, fregado y aspirado en una sola máquina. Con navegación inteligente y evitación de obstáculos en tiempo real, mantiene grandes superficies sin intervención humana. Se auto-carga, auto-rellena y auto-limpia.',
+            'c5.sp1': 'Eficiencia de limpieza', 'c5.sp2': 'Ancho de limpieza', 'c5.sp3': 'Tanque de agua', 'c5.sp4': 'Autonomía de fregado', 'c5.sp5': 'Presión de fregado', 'c5.sp6': 'Eficiencia recogida',
+            'c5.apps': 'Aplicaciones',
+            'c5.a1t': 'Comercio y oficinas', 'c5.a1s': 'Supermercados · Centros comerciales · Oficinas', 'c5.a1d': 'Limpieza autónoma de grandes superficies comerciales durante y fuera del horario de apertura, sin interrumpir la actividad.',
+            'c5.a2t': 'Hostelería y sanidad', 'c5.a2s': 'Hoteles · Hospitales · Residencias', 'c5.a2d': 'Mantenimiento higiénico continuo en entornos que requieren estándares de limpieza elevados y operación silenciosa.',
+            'c5.a3t': 'Industria y transporte', 'c5.a3s': 'Aeropuertos · Naves industriales · Logística', 'c5.a3d': 'Cobertura de grandes extensiones con autonomía completa: carga, rellenado y vaciado automáticos sin intervención.',
+            'contact.title': 'Hablemos del futuro',
+            'contact.desc': '¿Interesado en integrar robots AGIBOT en tu empresa o centro de investigación? Contáctanos y te asesoramos sin compromiso.',
+            'contact.btn': 'Contactar',
+            'footer': '© 2026 RH Bots — Recursos Humanoides. Distribuidor oficial AGIBOT en Iberia.'
+        },
+        en: {
+            'nav.inicio': 'Home', 'nav.productos': 'Products', 'nav.contacto': 'Contact',
+            'hero.tagline': 'Official AGIBOT distributor in Iberia',
+            'dist.badge': 'Official Partner',
+            'dist.title': 'Official <span>AGIBOT</span> distributor in Spain and Portugal',
+            'dist.desc': 'We are the exclusive AGIBOT partner for the Iberian Peninsula. We bring the world\'s most advanced humanoid robotics to businesses, institutions, and research centres. AGIBOT is the global leader in humanoid robot shipments with over 10,000 units deployed.',
+            'prod.title': 'Our Products', 'prod.subtitle': 'Robotic solutions for every need',
+            'cta.details': 'View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+            'd1.cat': 'Quadruped Robot',
+            'd1.card': 'Agile and versatile quadruped robot. Up to 3.7 m/s speed, climbs 16 cm stairs and 30° slopes. Available in Edu, Pro and Ultra versions.',
+            'd1.sub': 'Intelligent Quadruped Robot',
+            'd1.desc': 'The D1 is an agile quadruped robot designed for inspection, security, education, and field operations. With reinforcement learning-based gait control, it navigates complex terrain with stability and speed. Available in multiple configurations to suit every use case.',
+            'd1.sp1': 'Max speed', 'd1.sp2': 'Max slope', 'd1.sp3': 'Stairs', 'd1.sp4': 'Jump', 'd1.sp5': 'Peak torque (Ultra)', 'd1.sp6': 'Protection (Ultra)',
+            'd1.v1': 'Educational platform with open development interfaces. Ideal for universities, training centres and research laboratories.',
+            'd1.v2': 'Standard professional configuration for demonstrations, visual inspection and indoor security operations.',
+            'd1.v3': 'Industrial grade with 48 Nm peak torque, calibration-free startup (dual encoder) and protection for outdoor and demanding environments.',
+            'x2.cat': 'Bipedal Humanoid',
+            'x2.card': 'Compact 131 cm humanoid with up to 30 degrees of freedom. Walks, runs, dances and interacts with lifelike expressions powered by onboard AI.',
+            'x2.sub': 'Lingxi X2 · Compact Bipedal Humanoid',
+            'x2.desc': 'The X2 is the world\'s best-selling compact humanoid. Designed for natural human interaction, it combines advanced bipedal locomotion with cutting-edge artificial intelligence. It recognises emotions, responds with realistic facial expressions and body language, and can learn new tasks as a generalist.',
+            'x2.sp1': 'Height', 'x2.sp2': 'Weight', 'x2.sp3': 'Degrees of freedom (Ultra)', 'x2.sp4': 'Max speed', 'x2.sp5': 'Swappable battery', 'x2.sp6': 'Battery life',
+            'x2.v1': 'Base platform ideal for education, research and demonstrations. Interactive RGB cameras, microphone array and speaker.',
+            'x2.v2': 'Enhanced arms with 7 DoF per arm for greater dexterity. Advanced configuration for manipulation tasks and professional interaction.',
+            'x2.v3': 'Full sensor suite: 3D LiDAR, RGB-D camera, stereo, IMU, joint force sensors and autonomous charging.',
+            'variants': 'Available configurations',
+            'c5.cat': 'Autonomous Cleaning',
+            'c5.card': 'Autonomous commercial cleaning robot. Sweeps, scrubs and vacuums up to 1,980 m²/h. 90L tank, 3-hour battery life, automatic charging and refilling.',
+            'c5.sub': 'Autonomous Commercial Cleaning Robot',
+            'c5.desc': 'The C5 is a fully autonomous commercial cleaning robot that combines sweeping, scrubbing and vacuuming in a single machine. With intelligent navigation and real-time obstacle avoidance, it maintains large surfaces without human intervention. Auto-charges, auto-refills and self-cleans.',
+            'c5.sp1': 'Cleaning efficiency', 'c5.sp2': 'Cleaning width', 'c5.sp3': 'Water tank', 'c5.sp4': 'Scrubbing runtime', 'c5.sp5': 'Scrubbing pressure', 'c5.sp6': 'Debris collection',
+            'c5.apps': 'Applications',
+            'c5.a1t': 'Retail and offices', 'c5.a1s': 'Supermarkets · Shopping centres · Offices', 'c5.a1d': 'Autonomous cleaning of large commercial surfaces during and outside opening hours, without disrupting activity.',
+            'c5.a2t': 'Hospitality and healthcare', 'c5.a2s': 'Hotels · Hospitals · Care homes', 'c5.a2d': 'Continuous hygienic maintenance in environments requiring high cleaning standards and quiet operation.',
+            'c5.a3t': 'Industry and transport', 'c5.a3s': 'Airports · Warehouses · Logistics', 'c5.a3d': 'Coverage of large areas with full autonomy: automatic charging, refilling and draining without intervention.',
+            'contact.title': 'Let\'s talk about the future',
+            'contact.desc': 'Interested in integrating AGIBOT robots in your company or research centre? Contact us for a no-obligation consultation.',
+            'contact.btn': 'Contact us',
+            'footer': '© 2026 RH Bots — Humanoid Resources. Official AGIBOT distributor in Iberia.'
+        },
+        pt: {
+            'nav.inicio': 'Início', 'nav.productos': 'Produtos', 'nav.contacto': 'Contacto',
+            'hero.tagline': 'Distribuidor oficial da AGIBOT na Ibéria',
+            'dist.badge': 'Parceiro Oficial',
+            'dist.title': 'Distribuidor oficial da <span>AGIBOT</span> em Espanha e Portugal',
+            'dist.desc': 'Somos o parceiro exclusivo da AGIBOT para a Península Ibérica. Levamos a robótica humanoide mais avançada do mundo a empresas, instituições e centros de investigação. A AGIBOT é líder mundial em envio de robôs humanoides com mais de 10.000 unidades implantadas.',
+            'prod.title': 'Os Nossos Produtos', 'prod.subtitle': 'Soluções robóticas para cada necessidade',
+            'cta.details': 'Ver detalhes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+            'd1.cat': 'Robô Quadrúpede',
+            'd1.card': 'Robô quadrúpede ágil e versátil. Até 3,7 m/s de velocidade, sobe escadas de 16 cm e declives de 30°. Disponível nas versões Edu, Pro e Ultra.',
+            'd1.sub': 'Robô Quadrúpede Inteligente',
+            'd1.desc': 'O D1 é um robô quadrúpede ágil projetado para inspeção, segurança, educação e operações de campo. Com controlo de marcha baseado em aprendizagem por reforço, navega terrenos complexos com estabilidade e rapidez. Disponível em múltiplas configurações para se adaptar a cada caso de uso.',
+            'd1.sp1': 'Velocidade máxima', 'd1.sp2': 'Declive máximo', 'd1.sp3': 'Escadas', 'd1.sp4': 'Salto', 'd1.sp5': 'Binário pico (Ultra)', 'd1.sp6': 'Proteção (Ultra)',
+            'd1.v1': 'Plataforma educativa com interfaces de desenvolvimento abertas. Ideal para universidades, centros de formação e laboratórios de investigação.',
+            'd1.v2': 'Configuração profissional padrão para demonstrações, inspeção visual e operações de segurança em interiores.',
+            'd1.v3': 'Grau industrial com 48 Nm de binário pico, arranque sem calibração (duplo encoder) e proteção para exteriores e ambientes exigentes.',
+            'x2.cat': 'Humanoide Bípede',
+            'x2.card': 'Humanoide compacto de 131 cm com até 30 graus de liberdade. Caminha, corre, dança e interage com expressões realistas graças à IA embarcada.',
+            'x2.sub': 'Lingxi X2 · Humanoide Bípede Compacto',
+            'x2.desc': 'O X2 é o humanoide compacto mais vendido do mundo. Projetado para interação natural com pessoas, combina locomoção bípede avançada com inteligência artificial de última geração. Reconhece emoções, responde com expressões faciais e linguagem corporal realista, e pode aprender novas tarefas de forma generalista.',
+            'x2.sp1': 'Altura', 'x2.sp2': 'Peso', 'x2.sp3': 'Graus de liberdade (Ultra)', 'x2.sp4': 'Velocidade máxima', 'x2.sp5': 'Bateria permutável', 'x2.sp6': 'Autonomia',
+            'x2.v1': 'Plataforma base ideal para educação, investigação e demonstrações. Câmaras RGB interativas, microfone array e altifalante.',
+            'x2.v2': 'Braços melhorados com 7 DoF por braço para maior destreza. Configuração avançada para tarefas de manipulação e interação profissional.',
+            'x2.v3': 'Suite sensorial completa: LiDAR 3D, câmara RGB-D, estéreo, IMU, sensores de força nas articulações e carregamento autónomo.',
+            'variants': 'Configurações disponíveis',
+            'c5.cat': 'Limpeza Autónoma',
+            'c5.card': 'Robô de limpeza comercial autónomo. Varre, esfrega e aspira até 1.980 m²/h. Tanque de 90L, 3 horas de autonomia, carregamento e reabastecimento automáticos.',
+            'c5.sub': 'Robô de Limpeza Comercial Autónomo',
+            'c5.desc': 'O C5 é um robô de limpeza comercial totalmente autónomo que combina varrimento, esfregamento e aspiração numa única máquina. Com navegação inteligente e evitamento de obstáculos em tempo real, mantém grandes superfícies sem intervenção humana. Auto-carrega, auto-reabastece e auto-limpa.',
+            'c5.sp1': 'Eficiência de limpeza', 'c5.sp2': 'Largura de limpeza', 'c5.sp3': 'Tanque de água', 'c5.sp4': 'Autonomia de esfregamento', 'c5.sp5': 'Pressão de esfregamento', 'c5.sp6': 'Eficiência de recolha',
+            'c5.apps': 'Aplicações',
+            'c5.a1t': 'Comércio e escritórios', 'c5.a1s': 'Supermercados · Centros comerciais · Escritórios', 'c5.a1d': 'Limpeza autónoma de grandes superfícies comerciais durante e fora do horário de funcionamento, sem interromper a atividade.',
+            'c5.a2t': 'Hotelaria e saúde', 'c5.a2s': 'Hotéis · Hospitais · Lares', 'c5.a2d': 'Manutenção higiénica contínua em ambientes que requerem padrões de limpeza elevados e operação silenciosa.',
+            'c5.a3t': 'Indústria e transportes', 'c5.a3s': 'Aeroportos · Armazéns · Logística', 'c5.a3d': 'Cobertura de grandes extensões com autonomia completa: carregamento, reabastecimento e esvaziamento automáticos sem intervenção.',
+            'contact.title': 'Falemos do futuro',
+            'contact.desc': 'Interessado em integrar robôs AGIBOT na sua empresa ou centro de investigação? Contacte-nos e aconselhamos sem compromisso.',
+            'contact.btn': 'Contactar',
+            'footer': '© 2026 RH Bots — Recursos Humanoides. Distribuidor oficial AGIBOT na Ibéria.'
+        }
+    };
+
+    function setLang(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (i18n[lang] && i18n[lang][key]) {
+                el.innerHTML = i18n[lang][key];
+            }
+        });
+        document.getElementById('currentLang').textContent = lang.toUpperCase();
+        document.querySelector('.lang-dropdown').classList.remove('open');
+        document.documentElement.lang = lang;
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        const dd = document.querySelector('.lang-dropdown');
+        if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+    });
+</script>
+
+</body>
+</html>
