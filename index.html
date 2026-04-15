@@ -933,9 +933,9 @@
     <ul class="nav-links" id="navLinks">
         <li><a href="#inicio" data-i18n="nav.inicio">Inicio</a></li>
         <li><a href="#productos" data-i18n="nav.productos">Productos</a></li>
-        <li><a href="#d1">D1</a></li>
-        <li><a href="#x2">X2</a></li>
         <li><a href="#c5">C5</a></li>
+        <li><a href="#x2">X2</a></li>
+        <li><a href="#d1">D1</a></li>
         <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
         <li class="lang-dropdown">
             <button class="lang-toggle" onclick="this.parentElement.classList.toggle('open')">
@@ -998,17 +998,17 @@
     <div class="carousel-container">
         <div class="carousel-track" id="carouselTrack">
 
-            <!-- D1 (clickable) -->
-            <a href="#d1" class="product-card clickable reveal">
+            <!-- C5 (clickable) -->
+            <a href="#c5" class="product-card clickable reveal">
                 <div class="card-img">
-                    <img src="assets/img/d1-frontal.png" alt="AGIBOT D1" loading="lazy">
+                    <img src="assets/img/c5-frontal.png" alt="AGIBOT C5" loading="lazy">
                 </div>
                 <div class="card-body">
-                    <div class="card-category" data-i18n="d1.cat">Robot Cuadr&uacute;pedo</div>
-                    <div class="card-title">AGIBOT D1</div>
-                    <p class="card-desc" data-i18n="d1.card">
-                        Robot cuadr&uacute;pedo &aacute;gil y vers&aacute;til. Hasta 3,7 m/s de velocidad,
-                        sube escaleras de 16 cm y pendientes de 30&deg;. Disponible en versiones Edu, Pro y Ultra.
+                    <div class="card-category" data-i18n="c5.cat">Limpieza Aut&oacute;noma</div>
+                    <div class="card-title">AGIBOT C5</div>
+                    <p class="card-desc" data-i18n="c5.card">
+                        Robot de limpieza comercial aut&oacute;nomo. Barre, friega y aspira hasta 1.980 m&sup2;/h.
+                        Tanque de 90L, 3 horas de autonom&iacute;a, carga y rellenado autom&aacute;ticos.
                     </p>
                     <span class="card-cta" data-i18n="cta.details">
                         Ver detalles
@@ -1036,17 +1036,17 @@
                 </div>
             </a>
 
-            <!-- C5 (clickable) -->
-            <a href="#c5" class="product-card clickable reveal">
+            <!-- D1 (clickable) -->
+            <a href="#d1" class="product-card clickable reveal">
                 <div class="card-img">
-                    <img src="assets/img/c5-frontal.png" alt="AGIBOT C5" loading="lazy">
+                    <img src="assets/img/d1-frontal.png" alt="AGIBOT D1" loading="lazy">
                 </div>
                 <div class="card-body">
-                    <div class="card-category" data-i18n="c5.cat">Limpieza Aut&oacute;noma</div>
-                    <div class="card-title">AGIBOT C5</div>
-                    <p class="card-desc" data-i18n="c5.card">
-                        Robot de limpieza comercial aut&oacute;nomo. Barre, friega y aspira hasta 1.980 m&sup2;/h.
-                        Tanque de 90L, 3 horas de autonom&iacute;a, carga y rellenado autom&aacute;ticos.
+                    <div class="card-category" data-i18n="d1.cat">Robot Cuadr&uacute;pedo</div>
+                    <div class="card-title">AGIBOT D1</div>
+                    <p class="card-desc" data-i18n="d1.card">
+                        Robot cuadr&uacute;pedo &aacute;gil y vers&aacute;til. Hasta 3,7 m/s de velocidad,
+                        sube escaleras de 16 cm y pendientes de 30&deg;. Disponible en versiones Edu, Pro y Ultra.
                     </p>
                     <span class="card-cta" data-i18n="cta.details">
                         Ver detalles
@@ -1060,86 +1060,131 @@
     </div>
 </section>
 
-<!-- ── D1 Detail Section ── -->
-<section class="x2-detail" id="d1" style="background: var(--light);">
+<!-- ── Proximamente ── -->
+<section class="productos" style="background: var(--white);">
+    <div class="section-header reveal">
+        <h2 data-i18n="soon.title">Pr&oacute;ximamente</h2>
+        <div class="line"></div>
+        <p data-i18n="soon.subtitle">Los humanoides que dominar&aacute;n la industria</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto;">
+
+            <div class="product-card reveal" style="opacity: 1;">
+                <div class="card-img" style="background: linear-gradient(135deg, #f5f0ff, #ede5ff);">
+                    <img src="assets/img/a2-frontal.png" alt="AGIBOT A2" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-category" data-i18n="a2.cat">Humanoide de Tama&ntilde;o Completo</div>
+                    <div class="card-title">AGIBOT A2</div>
+                    <p class="card-desc" data-i18n="a2.card">
+                        Humanoide de 169 cm con m&aacute;s de 40 grados de libertad y manos diestras de 19 DoF.
+                        Velocidad de hasta 3,3 m/s, 15 kg de carga por brazo y 200 TOPS de computaci&oacute;n IA.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-card reveal" style="opacity: 1;">
+                <div class="card-img" style="background: linear-gradient(135deg, #f0f8f5, #e5f2ee);">
+                    <img src="assets/img/g2-frontal.png" alt="AGIBOT G2" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-category" data-i18n="g2.cat">Humanoide con Ruedas</div>
+                    <div class="card-title">AGIBOT G2</div>
+                    <p class="card-desc" data-i18n="g2.card">
+                        Humanoide de prop&oacute;sito general con base m&oacute;vil. 26 DoF, percepci&oacute;n 3D de 360&deg;
+                        con 8 c&aacute;maras, sensores de fuerza y teleoperaci&oacute;n VR con latencia de milisegundos.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── C5 Detail Section ── -->
+<section class="x2-detail" id="c5" style="background: var(--light);">
     <div class="x2-detail-inner">
 
         <!-- Hero row -->
         <div class="x2-hero-row reveal">
             <div class="x2-hero-img">
-                <span class="model-badge">CUADR&Uacute;PEDO</span>
-                <div class="x2-slider" id="d1Slider">
-                    <img src="assets/img/d1-lateral.png" alt="D1 Lateral" class="x2-slide active">
-                    <img src="assets/img/d1-ultra.png" alt="D1 Ultra Perfil" class="x2-slide">
-                    <img src="assets/img/d1-ultra3.png" alt="D1 Ultra Cenital" class="x2-slide">
+                <span class="model-badge">LIMPIEZA</span>
+                <div class="x2-slider" id="c5Slider">
+                    <img src="assets/img/c5-frontal.png" alt="C5 Frontal" class="x2-slide active">
+                    <img src="assets/img/c5-perfil.png" alt="C5 Perfil" class="x2-slide">
+                    <img src="assets/img/c5-perfil-izq.png" alt="C5 Perfil Izquierdo" class="x2-slide">
+                    <img src="assets/img/c5-trasera.png" alt="C5 Trasera" class="x2-slide">
+                    <img src="assets/img/c5-perpendicular.png" alt="C5 Perpendicular" class="x2-slide">
                 </div>
-                <button class="x2-arrow x2-arrow-left" onclick="d1Prev()" aria-label="Anterior">
+                <button class="x2-arrow x2-arrow-left" onclick="c5Prev()" aria-label="Anterior">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
                 </button>
-                <button class="x2-arrow x2-arrow-right" onclick="d1Next()" aria-label="Siguiente">
+                <button class="x2-arrow x2-arrow-right" onclick="c5Next()" aria-label="Siguiente">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
-                <div class="x2-slider-dots" id="d1SliderDots"></div>
+                <div class="x2-slider-dots" id="c5SliderDots"></div>
             </div>
             <div class="x2-info">
-                <h2>AGIBOT D1</h2>
-                <div class="subtitle" data-i18n="d1.sub">Robot Cuadr&uacute;pedo Inteligente</div>
-                <p data-i18n="d1.desc">
-                    El D1 es un robot cuadr&uacute;pedo &aacute;gil dise&ntilde;ado para inspecci&oacute;n, seguridad,
-                    educaci&oacute;n y operaciones de campo. Con control de marcha basado en aprendizaje por
-                    refuerzo, navega terrenos complejos con estabilidad y rapidez. Disponible en
-                    m&uacute;ltiples configuraciones para adaptarse a cada caso de uso.
+                <h2>AGIBOT C5</h2>
+                <div class="subtitle" data-i18n="c5.sub">Robot de Limpieza Comercial Aut&oacute;nomo</div>
+                <p data-i18n="c5.desc">
+                    El C5 es un robot de limpieza comercial completamente aut&oacute;nomo que combina
+                    barrido, fregado y aspirado en una sola m&aacute;quina. Con navegaci&oacute;n inteligente
+                    y evitaci&oacute;n de obst&aacute;culos en tiempo real, mantiene grandes superficies
+                    sin intervenci&oacute;n humana. Se auto-carga, auto-rellena y auto-limpia.
                 </p>
                 <div class="x2-quick-specs">
                     <div class="spec-item">
-                        <div class="spec-value">3,7 m/s</div>
-                        <div class="spec-label" data-i18n="d1.sp1">Velocidad m&aacute;xima</div>
+                        <div class="spec-value">1.980 m&sup2;/h</div>
+                        <div class="spec-label" data-i18n="c5.sp1">Eficiencia de limpieza</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">30&deg;+</div>
-                        <div class="spec-label" data-i18n="d1.sp2">Pendiente m&aacute;xima</div>
+                        <div class="spec-value">550 mm</div>
+                        <div class="spec-label" data-i18n="c5.sp2">Ancho de limpieza</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">16 cm</div>
-                        <div class="spec-label" data-i18n="d1.sp3">Escaleras</div>
+                        <div class="spec-value">90 L</div>
+                        <div class="spec-label" data-i18n="c5.sp3">Tanque de agua</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">35 cm</div>
-                        <div class="spec-label" data-i18n="d1.sp4">Salto</div>
+                        <div class="spec-value">3 h</div>
+                        <div class="spec-label" data-i18n="c5.sp4">Autonom&iacute;a de fregado</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">48 Nm</div>
-                        <div class="spec-label" data-i18n="d1.sp5">Par pico (Ultra)</div>
+                        <div class="spec-value">25 kg</div>
+                        <div class="spec-label" data-i18n="c5.sp5">Presi&oacute;n de fregado</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">IP54</div>
-                        <div class="spec-label" data-i18n="d1.sp6">Protecci&oacute;n (Ultra)</div>
+                        <div class="spec-value">95%</div>
+                        <div class="spec-label" data-i18n="c5.sp6">Eficiencia recogida</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Variants -->
+        <!-- Applications -->
         <div class="x2-variants reveal">
-            <h3 data-i18n="variants">Configuraciones disponibles</h3>
+            <h3 data-i18n="c5.apps">Aplicaciones</h3>
             <div class="variants-grid">
                 <div class="variant-card">
-                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-                    <h4>D1 Edu</h4>
-                    <div class="variant-dof">IP32</div>
-                    <p data-i18n="d1.v1">Plataforma educativa con interfaces de desarrollo abiertas. Ideal para universidades, centros de formaci&oacute;n y laboratorios de investigaci&oacute;n.</p>
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <h4 data-i18n="c5.a1t">Comercio y oficinas</h4>
+                    <div class="variant-dof" data-i18n="c5.a1s">Supermercados &middot; Centros comerciales &middot; Oficinas</div>
+                    <p data-i18n="c5.a1d">Limpieza aut&oacute;noma de grandes superficies comerciales durante y fuera del horario de apertura, sin interrumpir la actividad.</p>
                 </div>
                 <div class="variant-card">
-                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-                    <h4>D1 Pro</h4>
-                    <div class="variant-dof">IP32</div>
-                    <p data-i18n="d1.v2">Configuraci&oacute;n profesional est&aacute;ndar para demostraciones, inspecci&oacute;n visual y operaciones de seguridad en interiores.</p>
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <h4 data-i18n="c5.a2t">Hostelería y sanidad</h4>
+                    <div class="variant-dof" data-i18n="c5.a2s">Hoteles &middot; Hospitales &middot; Residencias</div>
+                    <p data-i18n="c5.a2d">Mantenimiento higi&eacute;nico continuo en entornos que requieren est&aacute;ndares de limpieza elevados y operaci&oacute;n silenciosa.</p>
                 </div>
                 <div class="variant-card">
-                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                    <h4>D1 Ultra</h4>
-                    <div class="variant-dof">IP54</div>
-                    <p data-i18n="d1.v3">Grado industrial con 48 Nm de par pico, arranque sin calibraci&oacute;n (doble encoder) y protecci&oacute;n para exteriores y entornos exigentes.</p>
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M12 6V2"/><circle cx="12" cy="12" r="2"/><path d="M7 12h-2"/><path d="M19 12h-2"/></svg></div>
+                    <h4 data-i18n="c5.a3t">Industria y transporte</h4>
+                    <div class="variant-dof" data-i18n="c5.a3s">Aeropuertos &middot; Naves industriales &middot; Log&iacute;stica</div>
+                    <p data-i18n="c5.a3d">Cobertura de grandes extensiones con autonom&iacute;a completa: carga, rellenado y vaciado autom&aacute;ticos sin intervenci&oacute;n.</p>
                 </div>
             </div>
         </div>
@@ -1240,88 +1285,86 @@
 
 <div class="section-divider"></div>
 
-<!-- ── C5 Detail Section ── -->
-<section class="x2-detail" id="c5" style="background: var(--light);">
+<!-- ── D1 Detail Section ── -->
+<section class="x2-detail" id="d1" style="background: var(--light);">
     <div class="x2-detail-inner">
 
         <!-- Hero row -->
         <div class="x2-hero-row reveal">
             <div class="x2-hero-img">
-                <span class="model-badge">LIMPIEZA</span>
-                <div class="x2-slider" id="c5Slider">
-                    <img src="assets/img/c5-frontal.png" alt="C5 Frontal" class="x2-slide active">
-                    <img src="assets/img/c5-perfil.png" alt="C5 Perfil" class="x2-slide">
-                    <img src="assets/img/c5-perfil-izq.png" alt="C5 Perfil Izquierdo" class="x2-slide">
-                    <img src="assets/img/c5-trasera.png" alt="C5 Trasera" class="x2-slide">
-                    <img src="assets/img/c5-perpendicular.png" alt="C5 Perpendicular" class="x2-slide">
+                <span class="model-badge">CUADR&Uacute;PEDO</span>
+                <div class="x2-slider" id="d1Slider">
+                    <img src="assets/img/d1-lateral.png" alt="D1 Lateral" class="x2-slide active">
+                    <img src="assets/img/d1-ultra.png" alt="D1 Ultra Perfil" class="x2-slide">
+                    <img src="assets/img/d1-ultra3.png" alt="D1 Ultra Cenital" class="x2-slide">
                 </div>
-                <button class="x2-arrow x2-arrow-left" onclick="c5Prev()" aria-label="Anterior">
+                <button class="x2-arrow x2-arrow-left" onclick="d1Prev()" aria-label="Anterior">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
                 </button>
-                <button class="x2-arrow x2-arrow-right" onclick="c5Next()" aria-label="Siguiente">
+                <button class="x2-arrow x2-arrow-right" onclick="d1Next()" aria-label="Siguiente">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
-                <div class="x2-slider-dots" id="c5SliderDots"></div>
+                <div class="x2-slider-dots" id="d1SliderDots"></div>
             </div>
             <div class="x2-info">
-                <h2>AGIBOT C5</h2>
-                <div class="subtitle" data-i18n="c5.sub">Robot de Limpieza Comercial Aut&oacute;nomo</div>
-                <p data-i18n="c5.desc">
-                    El C5 es un robot de limpieza comercial completamente aut&oacute;nomo que combina
-                    barrido, fregado y aspirado en una sola m&aacute;quina. Con navegaci&oacute;n inteligente
-                    y evitaci&oacute;n de obst&aacute;culos en tiempo real, mantiene grandes superficies
-                    sin intervenci&oacute;n humana. Se auto-carga, auto-rellena y auto-limpia.
+                <h2>AGIBOT D1</h2>
+                <div class="subtitle" data-i18n="d1.sub">Robot Cuadr&uacute;pedo Inteligente</div>
+                <p data-i18n="d1.desc">
+                    El D1 es un robot cuadr&uacute;pedo &aacute;gil dise&ntilde;ado para inspecci&oacute;n, seguridad,
+                    educaci&oacute;n y operaciones de campo. Con control de marcha basado en aprendizaje por
+                    refuerzo, navega terrenos complejos con estabilidad y rapidez. Disponible en
+                    m&uacute;ltiples configuraciones para adaptarse a cada caso de uso.
                 </p>
                 <div class="x2-quick-specs">
                     <div class="spec-item">
-                        <div class="spec-value">1.980 m&sup2;/h</div>
-                        <div class="spec-label" data-i18n="c5.sp1">Eficiencia de limpieza</div>
+                        <div class="spec-value">3,7 m/s</div>
+                        <div class="spec-label" data-i18n="d1.sp1">Velocidad m&aacute;xima</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">550 mm</div>
-                        <div class="spec-label" data-i18n="c5.sp2">Ancho de limpieza</div>
+                        <div class="spec-value">30&deg;+</div>
+                        <div class="spec-label" data-i18n="d1.sp2">Pendiente m&aacute;xima</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">90 L</div>
-                        <div class="spec-label" data-i18n="c5.sp3">Tanque de agua</div>
+                        <div class="spec-value">16 cm</div>
+                        <div class="spec-label" data-i18n="d1.sp3">Escaleras</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">3 h</div>
-                        <div class="spec-label" data-i18n="c5.sp4">Autonom&iacute;a de fregado</div>
+                        <div class="spec-value">35 cm</div>
+                        <div class="spec-label" data-i18n="d1.sp4">Salto</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">25 kg</div>
-                        <div class="spec-label" data-i18n="c5.sp5">Presi&oacute;n de fregado</div>
+                        <div class="spec-value">48 Nm</div>
+                        <div class="spec-label" data-i18n="d1.sp5">Par pico (Ultra)</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value">95%</div>
-                        <div class="spec-label" data-i18n="c5.sp6">Eficiencia recogida</div>
+                        <div class="spec-value">IP54</div>
+                        <div class="spec-label" data-i18n="d1.sp6">Protecci&oacute;n (Ultra)</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Applications -->
+        <!-- Variants -->
         <div class="x2-variants reveal">
-            <h3 data-i18n="c5.apps">Aplicaciones</h3>
+            <h3 data-i18n="variants">Configuraciones disponibles</h3>
             <div class="variants-grid">
                 <div class="variant-card">
-                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-                    <h4 data-i18n="c5.a1t">Comercio y oficinas</h4>
-                    <div class="variant-dof" data-i18n="c5.a1s">Supermercados &middot; Centros comerciales &middot; Oficinas</div>
-                    <p data-i18n="c5.a1d">Limpieza aut&oacute;noma de grandes superficies comerciales durante y fuera del horario de apertura, sin interrumpir la actividad.</p>
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                    <h4>D1 Edu</h4>
+                    <div class="variant-dof">IP32</div>
+                    <p data-i18n="d1.v1">Plataforma educativa con interfaces de desarrollo abiertas. Ideal para universidades, centros de formaci&oacute;n y laboratorios de investigaci&oacute;n.</p>
                 </div>
                 <div class="variant-card">
-                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-                    <h4 data-i18n="c5.a2t">Hostelería y sanidad</h4>
-                    <div class="variant-dof" data-i18n="c5.a2s">Hoteles &middot; Hospitales &middot; Residencias</div>
-                    <p data-i18n="c5.a2d">Mantenimiento higi&eacute;nico continuo en entornos que requieren est&aacute;ndares de limpieza elevados y operaci&oacute;n silenciosa.</p>
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                    <h4>D1 Pro</h4>
+                    <div class="variant-dof">IP32</div>
+                    <p data-i18n="d1.v2">Configuraci&oacute;n profesional est&aacute;ndar para demostraciones, inspecci&oacute;n visual y operaciones de seguridad en interiores.</p>
                 </div>
                 <div class="variant-card">
-                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M12 6V2"/><circle cx="12" cy="12" r="2"/><path d="M7 12h-2"/><path d="M19 12h-2"/></svg></div>
-                    <h4 data-i18n="c5.a3t">Industria y transporte</h4>
-                    <div class="variant-dof" data-i18n="c5.a3s">Aeropuertos &middot; Naves industriales &middot; Log&iacute;stica</div>
-                    <p data-i18n="c5.a3d">Cobertura de grandes extensiones con autonom&iacute;a completa: carga, rellenado y vaciado autom&aacute;ticos sin intervenci&oacute;n.</p>
+                    <div class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <h4>D1 Ultra</h4>
+                    <div class="variant-dof">IP54</div>
+                    <p data-i18n="d1.v3">Grado industrial con 48 Nm de par pico, arranque sin calibraci&oacute;n (doble encoder) y protecci&oacute;n para exteriores y entornos exigentes.</p>
                 </div>
             </div>
         </div>
@@ -1505,6 +1548,10 @@
             'contact.title': 'Hablemos del futuro',
             'contact.desc': '¿Interesado en integrar robots AGIBOT en tu empresa o centro de investigación? Contáctanos y te asesoramos sin compromiso.',
             'contact.btn': 'Contactar',
+
+            'soon.title': 'Próximamente', 'soon.subtitle': 'Los humanoides que dominarán la industria',
+            'a2.cat': 'Humanoide de Tamaño Completo', 'a2.card': 'Humanoide de 169 cm con más de 40 grados de libertad y manos diestras de 19 DoF. Velocidad de hasta 3,3 m/s, 15 kg de carga por brazo y 200 TOPS de computación IA.',
+            'g2.cat': 'Humanoide con Ruedas', 'g2.card': 'Humanoide de propósito general con base móvil. 26 DoF, percepción 3D de 360° con 8 cámaras, sensores de fuerza y teleoperación VR con latencia de milisegundos.',
             'footer': '© 2026 RH Bots — Recursos Humanoides. Distribuidor oficial AGIBOT en Iberia.'
         },
         en: {
@@ -1544,6 +1591,10 @@
             'contact.title': 'Let\'s talk about the future',
             'contact.desc': 'Interested in integrating AGIBOT robots in your company or research centre? Contact us for a no-obligation consultation.',
             'contact.btn': 'Contact us',
+
+            'soon.title': 'Coming Soon', 'soon.subtitle': 'The humanoids that will dominate industry',
+            'a2.cat': 'Full-Size Humanoid', 'a2.card': '169 cm humanoid with over 40 degrees of freedom and 19 DoF dexterous hands. Up to 3.3 m/s speed, 15 kg payload per arm and 200 TOPS AI compute.',
+            'g2.cat': 'Wheeled Humanoid', 'g2.card': 'General-purpose humanoid with mobile base. 26 DoF, 360° 3D perception with 8 cameras, force sensors and VR teleoperation with millisecond latency.',
             'footer': '© 2026 RH Bots — Humanoid Resources. Official AGIBOT distributor in Iberia.'
         },
         pt: {
@@ -1583,6 +1634,10 @@
             'contact.title': 'Falemos do futuro',
             'contact.desc': 'Interessado em integrar robôs AGIBOT na sua empresa ou centro de investigação? Contacte-nos e aconselhamos sem compromisso.',
             'contact.btn': 'Contactar',
+
+            'soon.title': 'Brevemente', 'soon.subtitle': 'Os humanoides que dominarão a indústria',
+            'a2.cat': 'Humanoide de Tamanho Completo', 'a2.card': 'Humanoide de 169 cm com mais de 40 graus de liberdade e mãos destras de 19 DoF. Velocidade até 3,3 m/s, 15 kg de carga por braço e 200 TOPS de computação IA.',
+            'g2.cat': 'Humanoide com Rodas', 'g2.card': 'Humanoide de propósito geral com base móvel. 26 DoF, perceção 3D de 360° com 8 câmaras, sensores de força e teleoperação VR com latência de milissegundos.',
             'footer': '© 2026 RH Bots — Recursos Humanoides. Distribuidor oficial AGIBOT na Ibéria.'
         }
     };
