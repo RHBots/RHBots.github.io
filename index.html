@@ -3,10 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RH Bots - Distribuidor Oficial AGIBOT en Iberia</title>
-    <meta name="description" content="RH Bots - Distribuidor oficial de AGIBOT en Espa&ntilde;a y Portugal. Robots humanoides, cuadr&uacute;pedos y de limpieza aut&oacute;noma.">
+    <title>RH Bots | Distribuidor Oficial AGIBOT en España y Portugal - Robots Humanoides</title>
+    <meta name="description" content="RH Bots es el distribuidor oficial de AGIBOT en España y Portugal. Robots humanoides bípedos (X2, A2), cuadrúpedos (D1) y de limpieza autónoma (C5). Venta, soporte y demos en la Península Ibérica.">
+    <meta name="keywords" content="robots humanoides, AGIBOT, distribuidor oficial, España, Portugal, robot bípedo, robot cuadrúpedo, limpieza autónoma, X2, C5, D1, A2, G2, robótica, inteligencia artificial, automatización industrial, RH Bots, Recursos Humanoides">
+    <meta name="author" content="RH Bots - Recursos Humanoides">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="google-site-verification" content="AyZjW_OrUH_0R9RV7veP-dFY-BbngWjK6J6wp_wXE5s" />
     <link rel="canonical" href="https://rh-bots.com/" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rh-bots.com/">
+    <meta property="og:title" content="RH Bots | Distribuidor Oficial AGIBOT en España y Portugal">
+    <meta property="og:description" content="Distribuidor oficial de AGIBOT en la Península Ibérica. Robots humanoides bípedos, cuadrúpedos y de limpieza autónoma. Venta, soporte técnico y demostraciones.">
+    <meta property="og:image" content="https://rh-bots.com/assets/img/hero-bg.jpg">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="pt_PT">
+    <meta property="og:site_name" content="RH Bots">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RH Bots | Distribuidor Oficial AGIBOT en España y Portugal">
+    <meta name="twitter:description" content="Distribuidor oficial de AGIBOT en la Península Ibérica. Robots humanoides, cuadrúpedos y de limpieza autónoma.">
+    <meta name="twitter:image" content="https://rh-bots.com/assets/img/hero-bg.jpg">
+
+    <!-- Geo & Language -->
+    <meta name="geo.region" content="ES">
+    <meta name="geo.placename" content="España">
+    <meta name="language" content="Spanish">
+    <meta http-equiv="content-language" content="es, en, pt">
+
     <link rel="icon" href="favicon.ico?v=2" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
     <style>
@@ -2200,6 +2229,79 @@
         const dd = document.querySelector('.lang-dropdown');
         if (dd && !dd.contains(e.target)) dd.classList.remove('open');
     });
+</script>
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "RH Bots",
+    "alternateName": "Recursos Humanoides",
+    "url": "https://rh-bots.com",
+    "logo": "https://rh-bots.com/assets/img/logo-color.png",
+    "image": "https://rh-bots.com/assets/img/hero-bg.jpg",
+    "description": "Distribuidor oficial de AGIBOT en España y Portugal. Venta, soporte técnico y demostraciones de robots humanoides, cuadrúpedos y de limpieza autónoma.",
+    "email": "mblasco@rh-bots.com",
+    "areaServed": [
+        {"@type": "Country", "name": "Spain"},
+        {"@type": "Country", "name": "Portugal"}
+    ],
+    "sameAs": [
+        "https://www.instagram.com/rhbots/",
+        "https://www.linkedin.com/company/rh-bots/"
+    ],
+    "brand": {
+        "@type": "Brand",
+        "name": "AGIBOT"
+    },
+    "makesOffer": [
+        {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Product",
+                "name": "AGIBOT C5",
+                "description": "Robot de limpieza comercial autónomo. Barre, friega y aspira hasta 1.980 m²/h con 3 horas de autonomía.",
+                "image": "https://rh-bots.com/assets/img/c5-frontal.png",
+                "brand": {"@type": "Brand", "name": "AGIBOT"},
+                "category": "Robots de limpieza autónoma"
+            }
+        },
+        {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Product",
+                "name": "AGIBOT X2",
+                "description": "Humanoide bípedo compacto de 131 cm con hasta 30 grados de libertad. Camina, corre, baila e interactúa con IA embarcada.",
+                "image": "https://rh-bots.com/assets/img/x2-saludando.png",
+                "brand": {"@type": "Brand", "name": "AGIBOT"},
+                "category": "Robots humanoides"
+            }
+        },
+        {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Product",
+                "name": "AGIBOT D1",
+                "description": "Robot cuadrúpedo ágil y versátil. Hasta 3,7 m/s, sube escaleras de 16 cm y pendientes de 30°.",
+                "image": "https://rh-bots.com/assets/img/d1-lateral.png",
+                "brand": {"@type": "Brand", "name": "AGIBOT"},
+                "category": "Robots cuadrúpedos"
+            }
+        }
+    ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "RH Bots",
+    "url": "https://rh-bots.com",
+    "description": "Distribuidor oficial de AGIBOT en España y Portugal",
+    "inLanguage": ["es", "en", "pt"]
+}
 </script>
 
 </body>
