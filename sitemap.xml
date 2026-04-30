@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://rh-bots.com/</loc>
         <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rh-bots.com/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://rh-bots.com/" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://rh-bots.com/" />
+        <image:image>
+            <image:loc>https://rh-bots.com/assets/img/hero-bg.jpg</image:loc>
+            <image:title>RH Bots - Distribuidor AGIBOT</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://rh-bots.com/assets/img/c5-frontal.png</image:loc>
+            <image:title>AGIBOT C5 - Robot de limpieza autónoma</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://rh-bots.com/assets/img/x2-saludando.png</image:loc>
+            <image:title>AGIBOT X2 - Robot humanoide bípedo</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://rh-bots.com/assets/img/d1-lateral.png</image:loc>
+            <image:title>AGIBOT D1 - Robot cuadrúpedo</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://rh-bots.com/assets/img/a2-frontal.png</image:loc>
+            <image:title>AGIBOT A2 - Robot humanoide tamaño completo</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://rh-bots.com/assets/img/g2-frontal.png</image:loc>
+            <image:title>AGIBOT G2 - Robot humanoide con ruedas</image:title>
+        </image:image>
     </url>
 </urlset>
